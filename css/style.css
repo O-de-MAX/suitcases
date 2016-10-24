@@ -1,0 +1,258 @@
+html {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    #ACC1D2 5%,
+    #9999FF 30%,
+    #9999FF 55%,
+    #ACC1D2 65%,
+    #84AF30 65%,
+    #84AF30 67%,
+    #B7CD51 67%
+    );
+}
+
+body {
+  font-family: "Tahoma", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.weigher {
+  position: relative;
+  height: 150px;
+  width: 600px;
+  margin-top: 300px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+
+
+.body {
+  position: absolute;
+  left: 225px;
+  width: 150px;
+  height: 150px;
+  background-color: #EF7D1A;
+  border: 5px solid #974513;
+  border-radius: 50%;
+}
+
+.body:after {
+  content:'';
+  position: absolute;
+  top: 10px;
+  left: 7px;
+  width: 5px;
+  height: 5px;
+  border: 65px solid #EF7D1A;
+  border-top-color: #FFFFFF;
+  border-radius: 50%;
+}
+
+
+.stand {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  width: 400px;
+  height: 60px;
+  background-color: #974513;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.stand::before {
+  content:'';
+  position: absolute;
+  top: 5px;
+  left: 15px;
+  width: 370px;
+  height: 5px;
+  background-color: #FFFFFF;
+  border-radius: 2px;
+}
+
+.center {
+  position: absolute;
+  top: 75px;
+  left: 282px;
+  width: 36px;
+  height: 36px;
+  background-color: #000000;
+  border: 6px solid #EF7D1A;
+  border-radius: 50%;
+}
+
+.spring {
+  position: absolute;
+  top: 45px;
+  width: 40px;
+  height: 30px;
+  border-top: 10px solid #404344;
+  border-bottom: 10px solid #404344;
+  background-image: linear-gradient(
+    transparent 0%,
+    transparent 33%,
+    #404344 33%,
+    #404344 66%,
+    transparent 66%,
+    transparent 100%
+    );
+}
+
+.left-spring {
+  left: 120px;
+}
+
+.right-spring.active {
+  height: 0px;
+  transform: translateY(30px);
+  transition-duration: 0.5s;
+}
+
+.right-spring {
+  right: 120px;
+}
+
+.left-spring.active {
+  height: 0px;
+  transform: translateY(30px);
+  transition-duration: 0.5s;
+}
+
+.holder {
+  position: absolute;
+  bottom: 110px;
+  width: 300px;
+  height: 200px;
+  border-bottom: 10px solid  #974513;
+
+}
+
+.left-holder {
+  left: -100px;
+}
+
+.left-holder.active {
+  transform: translateY(30px);
+  transition-duration: 0.5s;
+}
+
+.right-holder {
+  right: -100px;
+}
+
+.right-holder.active {
+  transform: translateY(30px);
+  transition-duration: 0.5s;
+}
+
+.ticktocker {
+  position: absolute;
+  left: 296px;
+  top: -10px;
+  width: 0;
+  height: 0;
+  border: 10px solid transparent;
+  border-bottom: 100px solid #000000;
+  border-radius: 10px;
+  z-index: 5;
+
+  transform-origin: bottom;
+  transition: transform 0.5s ease;
+}
+
+.box {
+  position: absolute;
+  bottom: 10px;
+  width: 100px;
+  height: 70px;
+  background-color: #CA8E50;
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.4) 1%,
+    rgba(255, 255, 255, 0) 2%,
+    rgba(255, 255, 255, 0.1) 100%
+    );
+  display: inline-block;
+  text-align: left;
+  margin: 5px;
+  border: 1px solid #B16E38;
+  line-height: 20px;
+  padding-left: 3px;
+  font-size: 9px;
+  text-indent: 5px;
+  font-weight: bold;
+  color: #8B582F;
+  text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  z-index: 50;
+}
+
+.box::before {
+  content: '';
+  height: 0;
+	width: 85px;
+  position: absolute;
+  top: -16px;
+  left: -1px;
+  border-bottom: 15px solid #B16E38;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+}
+
+.box::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 0;
+	height: 0;
+	border-left: 40px solid transparent;
+}
+
+#box-1 {
+  left: 100px;
+}
+#box-2 {
+  left: 300px;
+}
+#box-3 {
+  left: 500px;
+}
+#box-4 {
+  left: 700px;
+}
+#box-5 {
+  left: 900px;
+}
+#box-6 {
+  left: 1100px;
+}
+
+#box-1::after {
+  border-bottom: 40px solid #FF4500;
+}
+
+#box-2::after {
+  border-bottom: 40px solid #7CFC00;
+}
+
+#box-3::after {
+  border-bottom: 40px solid #00FFFF;
+}
+
+#box-4::after {
+  border-bottom: 40px solid #4169E0;
+}
+
+#box-5::after {
+  border-bottom: 40px solid  #9400D3;
+}
+
+#box-6::after {
+  border-bottom: 40px solid #FF1493;
+}
