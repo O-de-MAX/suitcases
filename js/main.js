@@ -88,7 +88,9 @@ function weigherGo(leftH, rightH) {
     }
 
     imLeft = +leftH;
+
     imRight = +rightH;
+
 
 }
 
@@ -103,7 +105,7 @@ document.onmousedown = function(e) {
     var startX = e.clientX;
     var startY = e.clientY;
 
-    // проверяем позицию, если сняли коробку с весов, вычитаем вес
+    // проверяем позицию, если сняли коробку с весов, то вычитаем вес
 
     boxPosition(startX, startY, function() {
         if (boxToLeft) {
@@ -124,7 +126,7 @@ document.onmousedown = function(e) {
         moveAt(e.clientX, e.clientY);
     };
 
-    box.onmouseup = function() {
+    document.onmouseup = function() {
         finish();
 
         boxToLeft = false;
@@ -165,7 +167,7 @@ document.onmousedown = function(e) {
         var endX = box.getBoundingClientRect().left;
         var endY = box.getBoundingClientRect().top;
 
-        // проверяем позицию, если положили на весы, добавляем вес
+        // проверяем позицию, если положили на весы, то добавляем вес
 
         boxPosition(endX, endY, function() {
             if (boxToLeft) {
@@ -181,6 +183,8 @@ document.onmousedown = function(e) {
 
         boxToLeft = false;
         boxToRight = false;
+
+        //debugger;
 
     }
 

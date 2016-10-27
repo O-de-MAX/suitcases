@@ -2,14 +2,27 @@ html {
   width: 100%;
   height: 100%;
   background-image: linear-gradient(
+    #ACC1D2 10px,
+    #9999FF 100px,
+    #9999FF 200px,
+    #ACC1D2 400px,
+    #ACC1D2 440px,
+    #84AF30 440px,
+    #84AF30 450px,
+    #B7CD51 450px,
+    #B7CD51 100%
+    );
+
+  /*background-image: linear-gradient(
     #ACC1D2 5%,
     #9999FF 30%,
     #9999FF 55%,
     #ACC1D2 65%,
     #84AF30 65%,
     #84AF30 67%,
-    #B7CD51 67%
-    );
+    #B7CD51 67%,
+    #B7CD51 100%
+    );*/
 }
 
 body {
@@ -27,8 +40,6 @@ body {
   margin-right: auto;
 
 }
-
-
 
 .body {
   position: absolute;
@@ -51,7 +62,6 @@ body {
   border-top-color: #FFFFFF;
   border-radius: 50%;
 }
-
 
 .stand {
   position: absolute;
