@@ -1,6 +1,10 @@
 "use strict";
 
+// стрелка
+
 var ticktocker = document.querySelector(".ticktocker");
+
+// чаши весов
 
 var rightHolder = document.querySelector(".right-holder");
 var rightSpring = document.querySelector(".right-spring");
@@ -12,7 +16,6 @@ var rightHolderCoords = {
     rR: rightHolder.getBoundingClientRect().right
 };
 
-
 var leftHolder = document.querySelector(".left-holder");
 var leftSpring = document.querySelector(".left-spring");
 
@@ -23,38 +26,45 @@ var leftHolderCoords = {
     lR: leftHolder.getBoundingClientRect().right
 };
 
-//var weigherLeftIsActiv = false;
-//var weigherRightIsActiv = false;
+// наличие коробки
 
 var boxToLeft = false;
 var boxToRight = false;
 
+// изначальный параметр веса
+
 var imLeft = 0;
 var imRight = 0;
 
+// координаты
+
 var shiftX, shiftY;
 
-
+// проверка позиции коробки
 
 function boxPosition(x, y, callback) {
 
     if (((x > leftHolderCoords.lL) && (x < leftHolderCoords.lR)) && ((y > leftHolderCoords.lT) && (y < leftHolderCoords.lB))) {
         boxToLeft = true;
         callback(boxToLeft);
+    } else {
+        boxToLeft = false;
+    }
 
-    } else if (((x > rightHolderCoords.rL) && (x < rightHolderCoords.rR)) && ((y > rightHolderCoords.rT) && (y < rightHolderCoords.rB))) {
+    if (((x > rightHolderCoords.rL) && (x < rightHolderCoords.rR)) && ((y > rightHolderCoords.rT) && (y < rightHolderCoords.rB))) {
         boxToRight = true;
         callback(boxToRight);
     } else {
-        boxToLeft = false;
         boxToRight = false;
     }
 
 }
 
+//работа весов
+
 function weigherGo(leftH, rightH) {
 
-    if (rightH == 0 || leftH == 0) {
+    if ((rightH == 0 || leftH == 0) || rightH == leftH) {
         ticktocker.style.transform = "none";
 
         rightHolder.classList.remove("active");
@@ -90,13 +100,14 @@ document.onmousedown = function(e) {
 
     if (!box.classList.contains("box")) return;
 
-    shiftX = e.clientX;
-    shiftY = e.clientY;
+    var startX = e.clientX;
+    var startY = e.clientY;
 
-    boxPosition(shiftX, shiftY, function() {
+    // проверяем позицию, если сняли коробку с весов, вычитаем вес
+
+    boxPosition(startX, startY, function() {
         if (boxToLeft) {
             imLeft = +imLeft - +index;
-
 
         } else if (boxToRight) {
             imRight = +imRight - +index;
@@ -120,7 +131,6 @@ document.onmousedown = function(e) {
         boxToRight = false;
 
     };
-
 
     function start(clientX, clientY) {
 
@@ -152,11 +162,12 @@ document.onmousedown = function(e) {
         document.onmousemove = null;
         box.onmouseup = null;
 
-        shiftX = box.getBoundingClientRect().left;
-        shiftY = box.getBoundingClientRect().top;
+        var endX = box.getBoundingClientRect().left;
+        var endY = box.getBoundingClientRect().top;
 
+        // проверяем позицию, если положили на весы, добавляем вес
 
-        boxPosition(shiftX, shiftY, function() {
+        boxPosition(endX, endY, function() {
             if (boxToLeft) {
                 imLeft = +imLeft + +index;
 
@@ -174,4 +185,5 @@ document.onmousedown = function(e) {
     }
 
     return false;
+
 };
